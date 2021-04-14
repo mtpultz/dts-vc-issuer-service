@@ -25,21 +25,21 @@ export class CredentialsPageComponent implements OnInit {
   public selectedImmunizationRecords: ImmunizationRecord[];
   public savedImmunizationRecords: ImmunizationRecord[];
 
-  private readonly patientSeed = {
+  public readonly patientSeed = {
     // patientId: '9039555099', // Immunization patient
     // patientId: '9902489314', // Immunization patient
     patientId: '900489178',
     create: { // Issuer patient
       userId: '22091b5c-b2df-4f6e-b184-46d7bee84b08',
       hpdid: '22091b5c-b2df-4f6e-b184-46d7bee84b08',
-      firstName: 'Foghorn',
-      lastName: 'Leghorn',
-      givenNames: 'Foghorn Leghorn',
+      firstName: 'Roland',
+      lastName: 'Ethan',
+      givenNames: 'Roland Ethan',
       preferredFirstName: '',
       preferredMiddleName: '',
       preferredLastName: '',
       dateOfBirth: '2021-09-22',
-      email: 'foghorn.leghorn@example.com',
+      email: 'roland.ethan@example.com',
       phone: '9999999999',
       patientIdentifier: '9902489314'
     },
@@ -58,6 +58,10 @@ export class CredentialsPageComponent implements OnInit {
     this.issuedCredential = null;
     this.selectedImmunizationRecords = [];
     this.savedImmunizationRecords = [];
+  }
+
+  public get username() {
+    return `${ this.patientSeed.create.firstName } ${ this.patientSeed.create.lastName }`;
   }
 
   public getAlertOptions(immunizationRecord: ImmunizationRecord): AlertOptions {
